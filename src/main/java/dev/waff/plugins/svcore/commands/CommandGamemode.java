@@ -64,7 +64,6 @@ public class CommandGamemode implements CommandExecutor {
 
 
             } else {
-                // TODO FIX CONSOLE FUNCTIONALITY
 
                 if (args.length != 2) { // ensure console isn't attempting to switch their own gamemode
                     ChatUtils.sendMessage(sender, "From console, you can only set an online player's gamemode. You must be in-game to perform the rest of this command.", 0);
@@ -125,7 +124,7 @@ public class CommandGamemode implements CommandExecutor {
                 if (sender.hasPermission("servercore.gamemode.survival"))
                     p.setGameMode(GameMode.SURVIVAL);
                 break;
-            case "creatie":
+            case "creative":
             case "c":
             case "1":
                 if (sender.hasPermission("servercore.gamemode.creative"))
