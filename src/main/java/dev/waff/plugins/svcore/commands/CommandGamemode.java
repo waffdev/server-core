@@ -82,6 +82,49 @@ public class CommandGamemode implements CommandExecutor {
                     return false;
                 }
             }
+        } else {
+            if (args.length == 1){ // ie. /gms [player]
+                if (sender.hasPermission("servercore.gamemode.others")) {
+                    Player target = Bukkit.getPlayer(args[0]);
+                    if (sender instanceof Player){
+                        Player p = (Player) sender;
+                        if (target != null) {
+                            setGamemodeFromAlias(target, p, label);
+                        } else {
+                            ChatUtils.sendMessage(p, "That player is not online.", 0);
+                            return false;
+                        }
+                    } else {
+                        if (target != null){
+                            setGamemodeFromAlias(target, sender, label);
+                        } else {
+                            ChatUtils.sendMessage(sender, "That player is not online.", 0);
+                            return false;
+                        }
+                    }
+                } else {
+                    if (sender instanceof Player) {
+                        ChatUtils.sendMessage((Player) sender, "You do not have access to change other people's gamemodes", 0);
+                        return false;
+                    } else {
+                        ChatUtils.sendMessage(sender, "You do not have access to change other people's gamemodes", 0);
+                        return false;
+                    }
+                }
+            } else if (args.length == 0) {
+                if (!(sender instanceof Player))
+                    return false;
+
+                Player p = (Player) sender;
+                setGamemodeFromAlias(p, p, label);
+            } else {
+                if (sender instanceof Player) {
+                    ChatUtils.sendMessage((Player)sender, "Incorrect Usage: /" + label + " [player]", 1);
+                    return false;
+                } else {
+                    ChatUtils.sendMessage(sender, "Incorrect Usage: /" + label + " [player]", 1);
+                }
+            }
         }
 
         return false;
@@ -146,6 +189,46 @@ public class CommandGamemode implements CommandExecutor {
         ChatUtils.sendMessage(sender, "Player gamemode updated.", 2);
     }
 
-
-
+    private void setGamemodeFromAlias(Player p, Player sender, String label){
+        switch (label){
+            case "gms":
+                if (sender.hasPermission("servercore.gamemode.survival"))
+                    p.setGameMode(GameMode.SURVIVAL);
+                break;
+            case "gmc":
+                if (sender.hasPermission("servercore.gamemode.creative"))
+                    p.setGameMode(GameMode.CREATIVE);
+                break;
+            case "gma":
+                if (sender.hasPermission("servercore.gamemode.spectator"))
+                    p.setGameMode(GameMode.ADVENTURE);
+                break;
+            case "gmsp":
+                if (sender.hasPermission("servercore.gamemode.specator"))
+                    p.setGameMode(GameMode.SPECTATOR);
+                break;
+        }
+        ChatUtils.sendMessage(sender, "Player gamemode updated.", 2);
+    }
+    private void setGamemodeFromAlias(Player p, CommandSender sender, String label){
+        switch (label){
+            case "gms":
+                if (sender.hasPermission("servercore.gamemode.survival"))
+                    p.setGameMode(GameMode.SURVIVAL);
+                break;
+            case "gmc":
+                if (sender.hasPermission("servercore.gamemode.creative"))
+                    p.setGameMode(GameMode.CREATIVE);
+                break;
+            case "gma":
+                if (sender.hasPermission("servercore.gamemode.spectator"))
+                    p.setGameMode(GameMode.ADVENTURE);
+                break;
+            case "gmsp":
+                if (sender.hasPermission("servercore.gamemode.specator"))
+                    p.setGameMode(GameMode.SPECTATOR);
+                break;
+        }
+        ChatUtils.sendMessage(sender, "Player gamemode updated.", 2);
+    }
 }
