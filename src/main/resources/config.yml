@@ -1,0 +1,46 @@
+#########################################################
+#           SERVER CORE CONFIGURATION FILE              #
+#########################################################
+
+#########################################################
+# Below are settings focused specifically on individual #
+# commands. They are separated by comments (just like   #
+# these!)                                               #
+#########################################################
+
+# HELP COMMAND
+# The below setting has two values, it will determine the
+# type of message that will show up when someone types
+# the '/help' command. If you would rather a custom message
+# sent to the player's chat type 1. If you would like
+# it to display all commands that the player has access
+# to, type 0 as a value below.
+help-type: 0
+
+# If you answered 1 for the value above, uncomment
+# (remove the # symbols) from the part below and type
+# each line you would like to be sent as a list.
+#help-messages:
+# - '&cFirst line'
+# - '&6Second line'
+# - '&eThird Line'
+# - '&aFourth Line'
+# - '&9Fifth Line'
+# - '&dSixth Line'
+
+# Also, if you would like to allow the command /pluginhelp
+# (which displays the traditional /help just for a specific
+# plugin) then switch the below value to true
+allow-plugin-help: false
+
+# If you are using plugin help, this will help your players
+# easily identify a plugin by a set amount of aliases.
+# To add your own alias, add a new line like the others,
+# firstly type your alias, then separated by a comma, the
+# exact name of the plugin you want to alias.
+# If you do use /pluginhelp, it's encouraged to do this.
+plugin-help-aliases:
+  - 'fawe,FastAsyncWorldEdit (WorldEdit)'
+  - 'FastAsyncWorldEdit,FastAsyncWorldEdit (WorldEdit)'
+  - 'Multiverse,Multiverse-Core'
+  - 'mv,Multiverse-Core'

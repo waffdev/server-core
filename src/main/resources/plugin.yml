@@ -1,6 +1,6 @@
 main: 'dev.waff.plugins.svcore.main.Main'
 name: 'ServerCore'
-version: '1.0.0'
+version: '1.0.1'
 description: A core plugin for all of your servers essential needs
 author: 'waff'
 api-version: '1.17'
@@ -8,3 +8,7 @@ commands:
     gamemode:
         description: 'A command to change yours or anothers gamemode.'
         aliases: [gm,gms,gmc,gma,gmsp]
+    help:
+        description: 'Type this command for help'
+    pluginhelp:
+        description: 'Type this command for help with a certain plugin'
