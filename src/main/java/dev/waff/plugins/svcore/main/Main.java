@@ -2,7 +2,6 @@ package dev.waff.plugins.svcore.main;
 
 import dev.waff.plugins.svcore.commands.CommandGamemode;
 import dev.waff.plugins.svcore.commands.CommandHelp;
-import dev.waff.plugins.svcore.plugin.PluginInfo;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
